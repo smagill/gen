@@ -18,9 +18,9 @@ function gettool() {
   popd >/dev/null
 }
 
-function emit_results() {
+function emit_results() { 
   echo "$1"  | \
-    jq --slurp '.[] | .file = .location.file | .line = .location.line | .type = .code | del(.location) | del(.severity) |  del(.code) | del(.end)'
+    jq --slurp '.[] | .file = .location.file | .line = .location.line | .type = .code | del(.location) | del(.severity) |  del(.code) | del(.end)' | jq --slurp
 }
 
 function run() {
